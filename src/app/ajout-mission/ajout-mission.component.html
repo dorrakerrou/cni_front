@@ -1,0 +1,25 @@
+<!--<div >
+<app-mission></app-mission>
+</div>-->
+<form [formGroup]="form">
+    <fieldset>
+        <legend>Login</legend>
+        <div class="form-field">
+            <label>Email:</label>
+            <input name="email" formControlName="userName"  [(ngModel)]="credentials.userName">
+        </div>
+        <div class="form-field">
+            <label>Password:</label>
+            <input name="password" formControlName="id" 
+                   type="password"
+                   [(ngModel)]="credentials.role">
+                   
+                   
+                   
+        </div>
+    </fieldset>
+    <div class="form-buttons">
+        <button class="button button-primary" 
+                (click)="createTokenservice()">Login</button>
+    </div>
+</form>

@@ -1,0 +1,166 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<app-navbar></app-navbar>
+<div *ngIf="show1==false">
+
+<div class="container" style="margin-bottom:10%" >
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+
+      <div class="card-header bg-info text-white" id="headingOne">
+        <h2 class="mb-0 text-right">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            إضافة منتفع بالمأمورية 
+          </button>
+        </h2>
+
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body ">
+
+          <form [formGroup]="OrdMissForm" #f="ngForm">
+              <div class="row" dir="rtl">
+                  <div class="form-group col-md-4 text-right">
+                      <label>المامورية رقم</label>
+                      <h4><span class = "label label-default">{{num_miss}}/{{cod}}</span></h4>
+               </div>
+              </div>
+            <div class="row">
+              <div class="form-group col-md-6 text-right">
+                <button class="btn btn-success" (click)="Search(cin)">
+                  البحث حسب بطاقةالتعريف </button>
+              </div>
+              <div class="form-group col-md-6 text-right">
+                <label>بطاقة التعريف الوطنية </label>
+                <input type="textbox" class="form-control" formControlName="cin" required [(ngModel)]="cin">
+              </div>
+            </div>
+
+            <div *ngIf="existe==true">
+              <div class="row">
+                <input type="textbox" class="form-control" formControlName="numMission" required [(ngModel)]="num_miss" hidden >
+                <input type="textbox" class="form-control" formControlName="numord" required [(ngModel)]="num_ordMiss" hidden >
+                <input type="textbox" class="form-control" formControlName="code" required [(ngModel)]="cod" hidden >
+
+                <div class="col-md-6 text-right">
+                  <label>اللقب </label>
+                  <label >{{nom}}  </label>
+                </div>
+                <div class="col-md-6 text-right">
+                  <label>الإسم </label>
+                  <label >{{prenom}}  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6 text-right">
+                  <label>تاريخ الإياب </label>
+                  <input type="date" class="form-control" formControlName="datarrP" required
+                    [(ngModel)]="Date_arrivee">
+                </div>
+                <div class="form-group col-md-6 text-right">
+
+                    <label>تاريخ الذهاب</label>
+                    <input type="date" class="form-control" formControlName="datdepP" required
+                      [(ngModel)]="Date_depart">
+                  </div>
+  
+              </div>
+              <div>
+                <button class="btn btn-success" (click)="add()">إدخال منتفعين بالمأمورية</button>
+            </div>
+            </div>
+            <div *ngIf="existe==false">
+                <div class="form-group col-md-12 text-right">
+        
+                  <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">مأمور غير موجود </h4>
+                    <p> مأمور غير موجود , الرجاء التثبت من رقم البطاقة </p>
+                    <hr>
+                    <p class="mb-0">هل تريد إضافة مأمور؟
+                      <a [routerLink]="['/home']">نعم</a>
+                    </p>
+                  </div>
+                </div>
+        
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="card">
+  <div class="card-header bg-info text-white text-right">
+    ajout
+  </div>
+  <div class="card-body">
+    <form [formGroup]="OrdMissForm" #f="ngForm">
+      <div class="form-group col-md-6">
+        <label>بطاقة التعريف الوطنية </label>
+        <input type="textbox" class="form-control" formControlName="cin" required [(ngModel)]="cin">
+      </div>
+      <div class="form-group col-md-6">
+        <button class="btn btn-success" (click)="Search(cin)">
+          البحث حسب بطاقةالتعريف </button>
+      </div>
+      <div *ngIf="existe==true">
+        <div class="form-group col-md-12">
+          <label>اللقب </label>
+          <input type="textbox" class="form-control" formControlName="nom" required [(ngModel)]="nom">
+        </div>
+        <div class="form-group col-md-12">
+          <label>الإسم </label>
+          <input type="textbox" class="form-control" formControlName="prenom" required [(ngModel)]="prenom">
+        </div>
+        <div class="form-group col-md-12">
+          <label>تاريخ الذهاب</label>
+          <input type="textbox" class="form-control" formControlName="Date_depart" required [(ngModel)]="Date_depart">
+        </div>
+        <div class="form-group col-md-12">
+          <label>تاريخ الإياب </label>
+          <input type="textbox" class="form-control" formControlName="Date_arrivee" required [(ngModel)]="Date_arrivee">
+        </div>
+      </div>
+      <div *ngIf="existe==false">
+        <div class="form-group col-md-12">
+          <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">مأمور غير موجود </h4>
+            <p> مأمور غير موجود , الرجاء التثبت من رقم البطاقة </p>
+            <hr>
+            <p class="mb-0">هل تريد إضافة مأمور؟
+              <a [routerLink]="['/home']">نعم</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-12">
+        <button class="btn btn-success" (click)="Search()">
+          إدخال منتفع
+        </button>
+      </div>
+    </form>
+  </div>
+</div>-->
+</div>
+<div *ngIf="show1==true">
+<app-frais-mission></app-frais-mission>
+</div>

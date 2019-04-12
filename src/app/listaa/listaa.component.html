@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div>
+    <div dir="rtl" lang="ar">
+      <div class="container">
+          <div class="card">
+              <div class="card-header bg-info text-white">
+                <div class="topnav-right">
+                  <label>قائمة المنتفعيين
+                  </label>
+                </div>
+                <div class="search-missionnaire">
+                  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                    placeholder="&#61442; ابحث هنا ">
+                </div>
+              </div>
+          <div class="card-body">
+            <div class="col-lg-12">
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="code_mission">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>code_mission </mat-header-cell>
+        <mat-cell *matCellDef="let mission"> {{mission.code_mission}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="objetA">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> objetA </mat-header-cell>>
+        <mat-cell *matCellDef="let mission"> {{mission.objetA}} </mat-cell>>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="objetF">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> objetF </mat-header-cell>
+        <mat-cell *matCellDef="let mission"> {{mission.objetF}} </mat-cell>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="date_debut">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> date_debut </mat-header-cell>
+        <mat-cell *matCellDef="let mission"> {{mission.date_debut}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <div>
+    <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

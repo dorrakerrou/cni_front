@@ -1,0 +1,126 @@
+<html lang="en">
+
+<body>
+
+  <!-- Main navigation -->
+  <header>
+    <!--Navbar-->
+
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+      <div class="container">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+
+          <!-- <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+            </li>
+          </ul>-->
+          <form class="form-inline">
+            <div class="md-form my-0">
+              <a class="nav-link"> {{cin_user}}: المستعمل</a>
+              <a class="nav-link"> المؤسسة: {{depart}}</a>
+
+            </div>
+          </form>
+          <form class="form-inline">
+            <div class="md-form my-0">
+            </div>
+          </form>
+        </div>
+      </div>
+      <a class="navbar-brand" href="#">
+        <img src="https://d7ieeqxtzpkza.cloudfront.net/wp-content/uploads/2019/02/logo-tranparent-cni1.png" height="50"
+          class="d-inline-block align-top" alt="mdb logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+        aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <!-- Full Page Intro -->
+    <div class="view"
+      style="background-image: url(''); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+      <!-- Mask & flexbox options-->
+      <div class="mask rgba-gradient align-items-center">
+        <!-- Content -->
+        <div class="container">
+          <!--Grid row-->
+          <div class="row">
+            <!--Grid column-->
+
+
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-6 col-xl-5 mt-xl-5 wow fadeInRight" data-wow-delay="0.3s">
+                <div ng-sidebar-content>
+              <h2  class="h2-responsive font-weight-bold mt-sm-5 text-center" (click)="_toggleSidebar()" style= "padding-top: 15%"><a class="divlink">القائمة</a></h2>
+            </div>
+
+              <hr class="hr-light">
+
+              <ng-sidebar-container>
+                
+                <ng-sidebar [(opened)]="_opened">
+                              <button class="button button1 btn-outline-black btn-link" (click)="goto1()">الإعتمادات</button>
+                  
+                              <button class="button button3 btn-outline-black btn-link"(click)="goto2()" >المأمورية</button>
+              
+                              <button class="button button2 btn-outline-black btn-link"(click)="goto3()" >المنتغعين</button>
+
+                </ng-sidebar>
+
+
+              </ng-sidebar-container>
+
+
+
+
+
+
+            </div>
+            <div class="col-md-6  white-text text-center text-md-right mt-xl-5 mb-5 wow fadeInLeft"
+              data-wow-delay="0.3s">
+              <h2 class="h2-responsive font-weight-bold mt-sm-5 text-center" style="color : black; padding-top : 12%">منظومة الماموريات بالخارج </h2>
+              <hr class="hr-light">
+
+
+
+              <h6 class="mb-4">الوظـائـف
+
+
+                إدخال المعطيات الخاصة بالإعتمادات المرصودة للقيام بالماموريات
+                إدخال وطباعة المعطيات الخاصة بالإذن بالمامورية وبطاقة التجميد وطلب تسبقة
+                المصادقة على بطاقة تجميد الإعتمادات
+                المصادقة على الإذن بالمامورية بعد تاشيرها من وزير الإشراف
+                إسناد التسبقة
+                المصادقة على المصاريف الإضافية
+                المتابعة المالية والفنية للماموريات
+                جداول إحصائية والمساعدة على إتخاذ القرار
+
+              </h6>
+              <a class="btn btn-outline-black">اضغط هنا لمعرفة المزيد</a>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </div>
+        <!-- Content -->
+      </div>
+      <!-- Mask & flexbox options-->
+    </div>
+    <!-- Full Page Intro -->
+  </header>
+  <!-- Main navigation -->
+  <!--Main Layout-->
+</body>
+
+</html>
