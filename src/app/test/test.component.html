@@ -1,40 +1,40 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <div class="md-form">
-        <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"
-               mdbInput>
-        <label for="search-input">Search</label>
-      </div>
-    </div>
-    <table mdbTable stickyHeader="true" hover="true" striped="true" class="z-depth-1">
-      <thead class="sticky-top">
+<table class="table table-striped table-bordered">
+  <thead>
       <tr>
-        <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"
-            scope="col">{{head}} <mdb-icon fas icon="sort"></mdb-icon>
-        </th>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Action</th>
       </tr>
-      </thead>
-      <tbody #row>
-      <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">
-        <th *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" scope="row">{{el.id}}</th>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="red-text">{{el.first}}</td>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.last}}</td>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.handle}}</td>
+  </thead>
+  <tbody>
+      <tr *ngFor="let field of fieldArray; let i = index">
+          <td>
+              <input [(ngModel)]="field.code" class="form-control" type="text" name="{{field.code}}" />
+          </td>
+          <td>
+              <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+          </td>
+          <td>
+              <input [(ngModel)]="field.price" class="form-control" type="text" name="{{field.price}}" />
+          </td>
+          <td>
+              <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+          </td>
       </tr>
-      </tbody>
-      <tfoot class="grey lighten-5 w-100">
-
       <tr>
-        <td colspan="4">
-          <mdb-table-pagination paginationAlign="" [searchDataSource]="elements" (nextPageClick)="onNextPageClick($event)"
-                                (previousPageClick)="onPreviousPageClick($event)"></mdb-table-pagination>
-        </td>
+          <td>
+              <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.code" name="newAttributeCode" />
+          </td>
+          <td>
+              <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.name" name="newAttributeName" />
+          </td>
+          <td>
+              <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.price" name="newAttributePrice" />
+          </td>
+          <td>
+              <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+          </td>
       </tr>
-
-      </tfoot>
-    </table>
-
-  </div>
-
-</div>
+  </tbody>
+</table>
